@@ -1,0 +1,14 @@
+services:
+  api:
+    container_name: employee-server
+    image: praveennagaraj/employee-service_api
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      - PORT=${PORT}
+      - MONGODB_URI=${MONGODB_URI}
+    ports:
+      - 8080:${PORT}
+    volumes:
+      - .:/app
